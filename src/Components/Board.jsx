@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Tile from "./Tile";
-import Strike from "./Strike";
 
 const PLAYER_X = "X";
-const PLAYER_O = "O";
+// const PLAYER_O = "O";
 
 const WINNING_COMBINATIONS = {
   "strike-column-1": [0, 3, 6],
@@ -23,7 +22,9 @@ export default function Board() {
   const [gameOver, setGameOver] = useState(false);
 
   let arrayCombinations = [];
+  
   const checkWin = () => {
+
     for (const combination in WINNING_COMBINATIONS) {
       const [a, b, c] = WINNING_COMBINATIONS[combination];
       if (tiles[a] && tiles[a] === tiles[b] && tiles[a] === tiles[c]) {
