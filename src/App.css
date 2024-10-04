@@ -70,6 +70,17 @@ body {
 }
 
 
+
+.board {
+  height: 600px;
+  width: 660px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin: auto;
+  align-items: center;
+  
+}
 .tile {
   display: flex;
   height: 180px;
@@ -94,13 +105,64 @@ body {
   font-weight: 600;
 }
 
-.board {
-  height: 600px;
-  width: 660px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  margin: auto;
-  align-items: center;
-
+.x-hover:hover::after {
+  content: "X";
+  opacity: 0.4;
 }
+
+.o-hover:hover::after {
+  content: "O";
+  opacity: 0.4;
+}
+
+.strike {
+  position: absolute;
+  background-color: darkorange;
+}
+
+.strike-row-1 {
+  width: 100%;
+  height: 4px;
+  top: 15%;
+}
+.strike-row-2 {
+  width: 100%;
+  height: 4px;
+  top: 48%;
+}
+.strike-row-3 {
+  width: 100%;
+  height: 4px;
+  top: 83%;
+}
+.strike-column-1 {
+  height: 100%;
+  width: 4px;
+  left: 15%;
+}
+.strike-column-2 {
+  height: 100%;
+  width: 4px;
+  left: 48%;
+}
+.strike-column-3 {
+  height: 100%;
+  width: 4px;
+  left: 83%;
+}
+.strike-diagonal-1 {
+  width: 90%;
+  height: 4px;
+  top: 50%;
+  left: 5%;
+  transform: skewY(45deg);
+}
+.strike-diagonal-2 {
+  width: 90%;
+  height: 4px;
+  top: 50%;
+  left: 5%;
+  transform: skewY(-45deg);
+}
+
+
