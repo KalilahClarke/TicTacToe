@@ -98,7 +98,7 @@ body {
   font-weight: 550;
 }
 
-.tile:hover {
+.hoverTile:hover {
   transform: scale(1.05);
   background-color: #1d6b92;
   font-size: 110px;
@@ -162,6 +162,7 @@ body {
   height: 4px;
   top: 50%;
   left: 5%;
+  margin-top:50px ;
   transform: skewY(-45deg);
 }
 
