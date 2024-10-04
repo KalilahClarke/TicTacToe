@@ -21,7 +21,7 @@ export default function Tile({
     for (let i = 0; i < strike.length; i++) {
       if (strike[i] === index) {
        const tileWinner = document.getElementById(`${index}`);
-       tileWinner.style.backgroundColor = 'orange';
+       tileWinner.style.backgroundColor = 'darkorange';
        tileWinner.style.fontSize = '110px';
       }
     }
