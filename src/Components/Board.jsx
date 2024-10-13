@@ -56,6 +56,10 @@ export default function Board({ setConfetti }) {
     setConfetti(false);
   };
 
+  const closeModal = () =>{
+    setGameOver(false)
+  }
+
   return (
     <div className="board">
       {tiles.map((tile, index) => {
@@ -76,7 +80,7 @@ export default function Board({ setConfetti }) {
         );
       })}
 
-      <Modal isOpen={gameOver} message={modalMessage} onClose={resetGame} />
+      <Modal isOpen={gameOver} message={modalMessage} onReset={resetGame} onClose={closeModal} />
     </div>
   );
 }
