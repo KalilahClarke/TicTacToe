@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Tile from "./Tile";
 import Modal from "./Modal";
 
@@ -16,7 +16,7 @@ const WINNING_COMBINATIONS = {
   "strike-diagonal-2": [2, 4, 6],
 };
 
-export default function Board() {
+export default function Board({ setConfetti }) {
   const [tiles, setTiles] = useState(Array(9).fill(null));
   const [strike, setStrike] = useState([]);
   const [player, setPlayer] = useState(PLAYER_X);
@@ -24,29 +24,28 @@ export default function Board() {
   const [modalMessage, setModalMessage] = useState("");
 
   let arrayCombinations = [];
-  
-  const checkWin = () => {
+
+  const checkWin = useCallback(() => {
     for (const combination in WINNING_COMBINATIONS) {
       const [a, b, c] = WINNING_COMBINATIONS[combination];
       if (tiles[a] && tiles[a] === tiles[b] && tiles[a] === tiles[c]) {
         setStrike(WINNING_COMBINATIONS[combination]);
         setModalMessage(`Player ${tiles[a]} wins!`);
+        setConfetti(true);
         setGameOver(true);
         return;
       }
     }
-
     // Check for a draw
     if (tiles.every((tile) => tile !== null)) {
       setModalMessage("Let's Play Again.");
       setGameOver(true);
     }
-  };
+  }, [setConfetti, tiles]);
 
   useEffect(() => {
     checkWin();
-  }, [tiles]);
-
+  }, [tiles, checkWin]);
 
   const resetGame = () => {
     setTiles(Array(9).fill(null));
@@ -54,6 +53,7 @@ export default function Board() {
     setPlayer(PLAYER_X);
     setGameOver(false);
     setModalMessage("");
+    setConfetti(false);
   };
 
   return (
@@ -75,12 +75,8 @@ export default function Board() {
           />
         );
       })}
-      
-      <Modal
-        isOpen={gameOver}
-        message={modalMessage}
-        onClose={resetGame}
-      />
+
+      <Modal isOpen={gameOver} message={modalMessage} onClose={resetGame} />
     </div>
   );
 }
