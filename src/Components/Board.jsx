@@ -38,7 +38,7 @@ export default function Board() {
 
     // Check for a draw
     if (tiles.every((tile) => tile !== null)) {
-      setModalMessage("It's a draw!");
+      setModalMessage("Let's Play Again.");
       setGameOver(true);
     }
   };
@@ -47,8 +47,6 @@ export default function Board() {
     checkWin();
   }, [tiles]);
 
-  // Add this console.log to debug
-  console.log("Modal Message:", modalMessage);
 
   const resetGame = () => {
     setTiles(Array(9).fill(null));
@@ -61,6 +59,7 @@ export default function Board() {
   return (
     <div className="board">
       {tiles.map((tile, index) => {
+        const isWinningTile = strike.includes(index);
         return (
           <Tile
             index={index}
@@ -72,6 +71,7 @@ export default function Board() {
             gameOver={gameOver}
             arrayCombinations={arrayCombinations}
             strike={strike}
+            isWinningTile={isWinningTile}
           />
         );
       })}
