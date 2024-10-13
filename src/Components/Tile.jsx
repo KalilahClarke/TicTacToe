@@ -12,7 +12,7 @@ export default function Tile({
   strike
 }){
   const [hover, setHover] = useState('');
-  console.log(arrayCombinations);
+
   useEffect(() => {
     setHover(player === 'X' ? 'x-hover' : 'o-hover');
   }, [player]);
