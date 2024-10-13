@@ -16,17 +16,6 @@ export default function Tile({
     setHover(player === "X" ? "x-hover" : "o-hover");
   }, [player]);
 
-  // useEffect(() => {
-  //   // for (let i = 0; i < strike.length; i++) {
-  //   //   if (strike[i] === index) {
-  //   //    const tileWinner = document.getElementById(`${index}`);
-  //   //    tileWinner.style.backgroundColor = 'darkorange';
-  //   //    tileWinner.style.fontSize = '110px';
-  //   //   }
-  //   // }
-  //   // tilePopulation()
-  // }, [gameOver === true]);
-
   const handleTileClick = () => {
     if (tiles[index] !== null || gameOver) return;
 
@@ -39,7 +28,7 @@ export default function Tile({
   const tilePopulation = () => {
     return (
       <div
-        id={`${isWinningTile ? "winner": `${index}`}`}
+        id={`${isWinningTile ? "winner" : `${index}`}`}
         className={`tile ${!gameOver && "hoverTile"} ${
           value ? "" : gameOver ? "" : hover
         }`}
