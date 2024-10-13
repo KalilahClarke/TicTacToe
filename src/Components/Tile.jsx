@@ -40,15 +40,6 @@ export default function Tile({
   };
 
   return (
-    // <div
-    //   id={`${index} ${isWinningTile ? "winner" : ""}`}
-    //   className={`tile ${!gameOver && "hoverTile"} ${
-    //     value ? "" : gameOver ? "" : hover
-    //   }`}
-    //   onClick={handleTileClick}
-    // >
-    //   {value}
-    // </div>
     tilePopulation()
   );
 }

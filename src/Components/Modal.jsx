@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ isOpen, onClose, message }) => {
+const Modal = ({ isOpen, onClose, onReset, message }) => {
   if (!isOpen) return null;
 
   return (
@@ -8,7 +8,7 @@ const Modal = ({ isOpen, onClose, message }) => {
       <div className="modal-content">
         <h1>{message.includes("win") ? "Congratulations" : "It's a draw!"}</h1>
         <p>{message}</p>
-        <button className="reset" onClick={onClose}>
+        <button className="reset" onClick={onReset}>
           Reset
         </button>
         <button className="reset" onClick={onClose}>
