@@ -2,6 +2,9 @@
 
 A simple, interactive Tic-Tac-Toe game built with React.
 
+
+![TicTacToe Basics](../TicTacToe/public/applicationVisual.png)
+
 ## Description
 
 This project is a web-based implementation of the classic Tic-Tac-Toe game. It allows two players to take turns marking spaces on a 3x3 grid. The first player to align three of their marks horizontally, vertically, or diagonally wins the game.
